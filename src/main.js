@@ -1,75 +1,75 @@
 const products = [
   {
-    id: 'linen-apron',
-    name: 'Leinen Atelier-Schurze',
-    category: 'Studio',
-    price: 79,
+    id: 'nlp',
+    name: 'NLP',
+    category: 'SkillBuilder Kurse',
+    price: 37,
     rating: 4.8,
-    badge: 'Bestseller',
-    color: '#b7a081',
-    image:
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
-    description: 'Robuste Arbeitsqualitat mit weichem Griff und verstellbarem Nackenband.'
-  },
-  {
-    id: 'ceramic-cup',
-    name: 'Keramikbecher Set',
-    category: 'Home',
-    price: 46,
-    rating: 4.7,
-    badge: 'Neu',
-    color: '#829b8e',
-    image:
-      'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=900&q=80',
-    description: 'Vier handglasierte Becher fur Espresso, Tee und ruhige Arbeitstage.'
-  },
-  {
-    id: 'desk-lamp',
-    name: 'Fokus Tischleuchte',
-    category: 'Office',
-    price: 129,
-    rating: 4.9,
-    badge: 'Limited',
-    color: '#d3a15f',
-    image:
-      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80',
-    description: 'Blendarmes Licht, gedimmter Abendmodus und klare Metallform.'
-  },
-  {
-    id: 'wool-throw',
-    name: 'Merino Plaid',
-    category: 'Home',
-    price: 115,
-    rating: 4.6,
-    badge: 'Fair',
-    color: '#947d92',
-    image:
-      'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80',
-    description: 'Dicht gewebtes Plaid aus Merinowolle fur Sofa, Studio und Reise.'
-  },
-  {
-    id: 'notebook-kit',
-    name: 'Planer Kit',
-    category: 'Office',
-    price: 38,
-    rating: 4.5,
-    badge: 'Bundle',
-    color: '#6c8796',
+    badge: 'Published',
+    color: '#1769ff',
     image:
       'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
-    description: 'Notizbuch, Marker und Projektkarten fur kleine, gut gefuhrte Systeme.'
+    description: 'Automatisch aus SkillBuilder exportierter Kurs. Sichtbar, weil die Lesson veroeffentlicht ist.'
   },
   {
-    id: 'market-tote',
-    name: 'Canvas Market Tote',
-    category: 'Studio',
-    price: 34,
+    id: 'symfony-update',
+    name: 'Php update mit Symfony update',
+    category: 'SkillBuilder Kurse',
+    price: 37,
     rating: 4.7,
-    badge: 'Eco',
-    color: '#9d785b',
+    badge: 'Updated',
+    color: '#0b4fd8',
     image:
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80',
-    description: 'Stabile Alltagstasche mit Innenfach und verstarkten Nahten.'
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80',
+    description: 'Beispiel fuer ein aktualisiertes Shopware-Produkt aus einer veroeffentlichten SkillBuilder-Lesson.'
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    category: 'SkillBuilder Kurse',
+    price: 37,
+    rating: 4.9,
+    badge: 'Published',
+    color: '#12a594',
+    image:
+      'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80',
+    description: 'Produktdaten kommen aus SkillBuilder; Shopware uebernimmt Sichtbarkeit und Storefront-Ausgabe.'
+  },
+  {
+    id: 'quantum-english',
+    name: 'QuantenMechanic English',
+    category: 'SkillBuilder Kurse',
+    price: 37,
+    rating: 4.6,
+    badge: 'Published',
+    color: '#5b21b6',
+    image:
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80',
+    description: 'Ein weiterer veroeffentlichter SkillBuilder-Kurs als sichtbares Shopware-Produkt.'
+  },
+  {
+    id: 'quantum-spiritualitaet',
+    name: 'Symbiose der QuantenMechanik und der Spiritualitaet',
+    category: 'SkillBuilder Kurse',
+    price: 37,
+    rating: 4.5,
+    badge: 'Published',
+    color: '#1e3a8a',
+    image:
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+    description: 'Kursdaten werden nicht doppelt gepflegt, sondern ueber den Admin-Import synchronisiert.'
+  },
+  {
+    id: 'shopware-api',
+    name: 'Shopware Admin API Import',
+    category: 'Highlights',
+    price: 37,
+    rating: 4.7,
+    badge: 'Bridge',
+    color: '#0f172a',
+    image:
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80',
+    description: 'Portfolio-Highlight: Admin-Button, Symfony-Service, Shopware Admin API und Sync-Log.'
   }
 ];
 
@@ -166,13 +166,13 @@ function render() {
   root.innerHTML = `
     <main>
       <header class="topbar">
-        <a class="brand" href="#top" aria-label="Atelier Supply Startseite">
-          <span>AS</span>
-          Atelier Supply
+        <a class="brand" href="#top" aria-label="SkillBuilder Shopware Demo Startseite">
+          <span>SB</span>
+          SkillBuilder Shopware Demo
         </a>
         <nav aria-label="Hauptnavigation">
           <a href="#produkte">Produkte</a>
-          <a href="#checkout">Checkout</a>
+          <a href="#checkout">Demo-Modus</a>
           <a href="#portfolio">Portfolio</a>
         </nav>
         <button class="cart-button" type="button" data-cart-open aria-label="Warenkorb offnen">
@@ -183,32 +183,33 @@ function render() {
 
       <section class="hero" id="top">
         <div class="hero-copy">
-          <p class="eyebrow">Shopware Demo Store</p>
-          <h1>Atelier Supply</h1>
+          <p class="eyebrow">SkillBuilder Commerce Bridge</p>
+          <h1>Veroeffentlichte Lessons werden Shopware-Produkte.</h1>
           <p>
-            Ein ruhiger Concept Store fur Studio, Home und Office. Gebaut als Portfolio-Demo
-            mit Produktkatalog, Filterlogik, Warenkorb und Checkout-Simulation.
+            Diese Portfolio-Demo zeigt die echte Shopware Admin API Integration:
+            SkillBuilder synchronisiert veroeffentlichte Kurse per Admin-Button als sichtbare Produkte.
+            Bestellungen und Zahlungen sind bewusst deaktiviert.
           </p>
           <div class="hero-actions">
             <a class="primary-link" href="#produkte">Sortiment ansehen <span class="icon">-&gt;</span></a>
             <a class="secondary-link" href="#portfolio">Technik ansehen</a>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Ausgewahlte Shop-Produkte">
-          <img src="${products[2].image}" alt="Design Tischleuchte" />
+        <div class="hero-visual" aria-label="Ausgewaehlte SkillBuilder-Produkte">
+          <img src="${products[2].image}" alt="SkillBuilder Kurs als Shopware-Produkt" />
           <div class="floating-card">
             <span class="icon">New</span>
-            <span>6 Produkte</span>
-            <strong>Store API ready</strong>
+            <span>Admin API Sync</span>
+            <strong>Demo ohne Verkauf</strong>
           </div>
         </div>
       </section>
 
       <section class="trust-strip" aria-label="Shop Vorteile">
-        <div><span class="icon">Truck</span> Versandfrei ab 120 EUR</div>
-        <div><span class="icon">Safe</span> Sichere Checkout-Strecke</div>
-        <div><span class="icon">Pack</span> Lagerstatus je Produkt</div>
-        <div><span class="icon">Pay</span> Zahlungsarten vorbereitet</div>
+        <div><span class="icon">API</span> Produkte aus SkillBuilder</div>
+        <div><span class="icon">No</span> Keine echten Bestellungen</div>
+        <div><span class="icon">Lock</span> Keine Zahlung aktiv</div>
+        <div><span class="icon">Log</span> Statusgesteuerte Synchronisation</div>
       </section>
 
       <section class="catalog" id="produkte">
@@ -253,12 +254,12 @@ function render() {
 
       <section class="checkout-preview" id="checkout">
         <div>
-          <p class="eyebrow">Checkout</p>
-          <h2>Demo-Bestellung ohne echte Zahlung</h2>
+          <p class="eyebrow">Demo-Modus</p>
+          <h2>Kein Verkauf, keine Bestellung, keine Zahlung</h2>
           <p>
-            Die Checkout-Strecke bildet Warenkorb, Versandkosten, Summen und Bestellstatus ab.
-            Fur eine echte Shopware-Anbindung waren Store API, Zahlungsanbieter und
-            Kundenkonto der nachste Schritt.
+            Der Warenkorb dient nur als klickbare Portfolio-Ansicht. Die Demo macht sichtbar,
+            wie SkillBuilder-Inhalte im Shop erscheinen, ohne Kundendaten, Zahlungsanbieter
+            oder echte Bestellungen zu verarbeiten.
           </p>
         </div>
         <div class="order-panel">
@@ -274,7 +275,7 @@ function render() {
             <span>Gesamt</span>
             <strong>${formatCurrency(totals.total)}</strong>
           </div>
-          <button type="button" data-cart-open>Warenkorb prufen <span class="icon">-&gt;</span></button>
+          <button type="button" data-cart-open>Warenkorb als Demo ansehen <span class="icon">-&gt;</span></button>
         </div>
       </section>
 
@@ -285,8 +286,8 @@ function render() {
           ${[
             'Produktlisting mit Suche, Kategorie-Filter und stabilen Kartenlayouts',
             'JavaScript-State fur Warenkorb, Mengenanderung und Summenberechnung',
-            'Checkout-nahe UI ohne echte personenbezogene Daten',
-            'Vorbereitet fur Shopware Store API, Admin API und CMS-Inhalte'
+            'Demo-Modus ohne echte personenbezogene Daten, Zahlung oder Bestellung',
+            'Reale Shopware Admin API Integration im verbundenen SkillBuilder Backend'
           ]
             .map((note) => `<div class="note"><span class="icon">OK</span><span>${note}</span></div>`)
             .join('')}
@@ -388,7 +389,8 @@ function renderCartDrawer(totals) {
             <span>Gesamt</span>
             <strong>${formatCurrency(totals.total)}</strong>
           </div>
-          <button type="button" ${items.length === 0 ? 'disabled' : ''}>Demo-Bestellung abschliessen</button>
+          <p class="cart-demo-note">Demo-Shop: Der Warenkorb ist nur eine Vorschau. Bestellungen sind deaktiviert.</p>
+          <button type="button" disabled>Bestellung deaktiviert</button>
         </div>
       </div>
     </aside>
