@@ -52,13 +52,13 @@ The SkillBuilder data model maps directly to Shopware concepts:
 - lessons become products through the Admin API
 - published lesson data becomes Shopware product data
 - visibility is controlled by publication status
-- cart actions can map to line item endpoints
-- checkout state can later use Shopware customer, shipping and payment flows
+- cart actions remain blocked in the public demo to avoid real orders
+- checkout and payment are intentionally disabled for portfolio use
 
 ## Next Production Steps
 
-1. Add screenshots of the live Shopware category fed by SkillBuilder.
-2. Add import logging in the SkillBuilder admin.
-3. Derive product images and prices from SkillBuilder metadata.
-4. Replace local cart state with Store API cart operations.
-5. Add quality checks and portfolio screenshots.
+1. Extend the sync log with per-product details.
+2. Derive product images and prices from SkillBuilder metadata.
+3. Add a stronger product-detail presentation for SkillBuilder course metadata.
+4. Add a short walkthrough video for recruiters and Shopware agencies.
+5. Add automated checks for the public storefront prototype.

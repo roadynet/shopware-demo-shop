@@ -1,10 +1,12 @@
-# SkillBuilder Shopware API Integration
+# SkillBuilder Shopware Admin API Integration
 
 **Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
 
-Connected SkillBuilder showcase repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
+Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
 Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter SkillBuilder-Kurse ueber die Shopware Admin API.
+
+**Positioning:** PHP/Symfony backend integration, Shopware 6 concepts, Admin API automation, product synchronization, and demo storefront operation.
 
 **Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert.
 
@@ -104,7 +106,7 @@ Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
 
 ## Warum dieses Projekt existiert
 
-Das Projekt erweitert SkillBuilder um eine produktionsnahe E-Commerce-Integration. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform, Shopware Admin API und Storefront.
+Das Projekt erweitert SkillBuilder um eine praxisorientierte E-Commerce-Integration. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform, Shopware Admin API und Storefront.
 
 Der Shop ist bewusst als Demo markiert. Es werden keine echten Kundendaten, Zahlungen oder produktiven Zugangsdaten verarbeitet.
 
