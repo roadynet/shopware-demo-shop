@@ -16,8 +16,7 @@ final class ShopwareDemoProductImporter
      * @param list<array{
      *     id:int,
      *     title:string,
-     *     description:string,
-     *     sections:list<array{code:string, title:string, sortOrder:int}>
+     *     description:string
      * }> $lessons
      * @return array{created:int, updated:int, categories:int, skipped:int, deactivated:int, categoriesHidden:int}
      */
@@ -48,7 +47,6 @@ final class ShopwareDemoProductImporter
             'categoriesHidden' => 0,
         ];
         $activeProductNumbers = [];
-        $activeLessonCategoryNames = [];
 
         foreach ($lessons as $lesson) {
             if ($lesson['id'] <= 0 || trim($lesson['title']) === '') {
@@ -56,16 +54,8 @@ final class ShopwareDemoProductImporter
                 continue;
             }
 
-            $lessonCategoryId = $this->ensureCategory($lesson['title'], $skillBuilderCategoryId, $config);
-            $activeLessonCategoryNames[] = $lesson['title'];
-            $categoryIds = [$lessonCategoryId];
+            $categoryIds = [$skillBuilderCategoryId];
             $result['categories']++;
-
-            foreach ($lesson['sections'] as $section) {
-                $label = trim($section['title']) !== '' ? $section['title'] : 'Section ' . $section['code'];
-                $categoryIds[] = $this->ensureCategory($section['code'] . ' - ' . $label, $lessonCategoryId, $config);
-                $result['categories']++;
-            }
 
             $productNumber = self::PRODUCT_PREFIX . $lesson['id'];
             $activeProductNumbers[] = $productNumber;
@@ -95,11 +85,7 @@ final class ShopwareDemoProductImporter
         }
 
         $result['deactivated'] = $this->deactivateUnpublishedProducts($activeProductNumbers, $config);
-        $result['categoriesHidden'] = $this->hideUnpublishedLessonCategories(
-            $skillBuilderCategoryId,
-            $activeLessonCategoryNames,
-            $config
-        );
+        $result['categoriesHidden'] = $this->hideChildCategories($skillBuilderCategoryId, $config);
 
         return $result;
     }
@@ -108,8 +94,7 @@ final class ShopwareDemoProductImporter
      * @param array{
      *     id:int,
      *     title:string,
-     *     description:string,
-     *     sections:list<array{code:string, title:string, sortOrder:int}>
+     *     description:string
      * } $lesson
      * @param list<string> $categoryIds
      * @return array<string, mixed>
@@ -123,7 +108,7 @@ final class ShopwareDemoProductImporter
         string $salesChannelId,
         array $categoryIds
     ): array {
-        $gross = round(29 + max(1, count($lesson['sections'])) * 8, 2);
+        $gross = 37.00;
 
         return [
             'name' => $lesson['title'],
@@ -180,12 +165,10 @@ final class ShopwareDemoProductImporter
     }
 
     /**
-     * @param list<string> $activeLessonCategoryNames
      * @param array{baseUrl:string, username:string, password:string} $config
      */
-    private function hideUnpublishedLessonCategories(
+    private function hideChildCategories(
         string $skillBuilderCategoryId,
-        array $activeLessonCategoryNames,
         array $config
     ): int {
         $categories = $this->request('POST', '/api/search/category', [
@@ -197,15 +180,13 @@ final class ShopwareDemoProductImporter
             ]],
         ], $config);
 
-        $activeLookup = array_fill_keys($activeLessonCategoryNames, true);
         $hidden = 0;
 
         foreach ($categories['data'] ?? [] as $category) {
-            $name = (string) ($category['name'] ?? '');
             $isAlreadyHidden = (bool) ($category['active'] ?? false) === false
                 && (bool) ($category['visible'] ?? false) === false;
 
-            if (isset($activeLookup[$name]) || $isAlreadyHidden) {
+            if ($isAlreadyHidden) {
                 continue;
             }
 
@@ -423,8 +404,7 @@ final class ShopwareDemoProductImporter
      * @param array{
      *     id:int,
      *     title:string,
-     *     description:string,
-     *     sections:list<array{code:string, title:string, sortOrder:int}>
+     *     description:string
      * } $lesson
      */
     private function buildDescription(array $lesson): string
@@ -434,7 +414,7 @@ final class ShopwareDemoProductImporter
         return implode("\n\n", [
             $description !== '' ? $description : 'Automatically exported SkillBuilder demo course.',
             sprintf('Generated from SkillBuilder lesson #%d.', $lesson['id']),
-            sprintf('Sections mapped as categories: %d.', count($lesson['sections'])),
+            'Product data is synchronized through the SkillBuilder admin workflow.',
         ]);
     }
 

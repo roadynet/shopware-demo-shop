@@ -7,9 +7,9 @@ The example shows the relevant production idea without exposing credentials or s
 - Symfony admin route with CSRF protection
 - only published SkillBuilder lessons are exported
 - lessons become Shopware products
-- lesson sections become Shopware categories
+- lessons are assigned to the `SkillBuilder Kurse` shop category
 - missing or unpublished course products are deactivated
-- orphaned lesson categories are hidden from navigation
+- orphaned categories from earlier demo imports are hidden from navigation
 - Shopware Admin API credentials are read from environment variables
 
 Required environment variables:

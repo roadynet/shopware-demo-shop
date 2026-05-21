@@ -6,9 +6,9 @@ Connected SkillBuilder showcase repository: [roadynet/skillbuilder-showcase](htt
 
 Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter SkillBuilder-Kurse ueber die Shopware Admin API.
 
-**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
+**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert.
 
-**Eigenstaendig konzipiert und umgesetzt:** Shopware Admin API Integration, Produkt- und Kategorie-Synchronisation, Statussteuerung ueber `published`, Admin-Workflow per Button, Storefront-Demo und Demo-Shoplogik.
+**Eigenstaendig konzipiert und umgesetzt:** Shopware Admin API Integration, Produkt-Synchronisation, Statussteuerung ueber `published`, Admin-Workflow per Button, Storefront-Demo und Demo-Shoplogik.
 
 **Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
@@ -34,10 +34,9 @@ Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter Skil
 
 - reale Shopware Admin API Synchronisation
 - SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
-- Kapitel aus SkillBuilder werden als Shopware-Kategorien abgebildet
 - Statussteuerung ueber `published`
 - automatische Aktivierung und Deaktivierung von Produkten
-- alte Kurs-Kategorien werden ausgeblendet
+- alte Unterkategorien aus frueheren Demo-Importen werden ausgeblendet
 - Admin-Workflow per Button
 - Environment-basierte API-Konfiguration
 - Produktkatalog
@@ -51,7 +50,7 @@ Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter Skil
 - PHP / Symfony im SkillBuilder Backend
 - Shopware 6
 - Shopware Admin API
-- API-basierter Produkt- und Kategorieimport
+- API-basierter Produktimport
 - JavaScript
 - HTML / CSS
 - Git / GitHub
@@ -62,8 +61,8 @@ In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. 
 
 1. SkillBuilder liest alle Lessons mit Status `published`.
 2. Fuer jede veroeffentlichte Lesson wird ein Shopware-Produkt mit der Produktnummer `SB-COURSE-{id}` erzeugt oder aktualisiert.
-3. Die Kapitel der Lesson werden als Kategorien unterhalb von `SkillBuilder Kurse` angelegt.
-4. Produkte und Kurs-Kategorien, die nicht mehr zu veroeffentlichten Lessons gehoeren, werden in Shopware deaktiviert beziehungsweise ausgeblendet.
+3. Die Produkte werden der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
+4. Produkte, die nicht mehr zu veroeffentlichten Lessons gehoeren, werden in Shopware deaktiviert.
 
 Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
 
@@ -85,7 +84,7 @@ Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
 - Kursinhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
 - Nur freigegebene Inhalte erscheinen automatisch im Shop.
 - Der Shop wird zum sichtbaren Verkaufskanal fuer SkillBuilder-Inhalte.
-- Admins koennen Produkte und Kategorien per Button synchronisieren.
+- Admins koennen Shopware-Produkte per Button synchronisieren.
 - Die Integration verbindet Lernplattform, E-Commerce und Content-Automation.
 - Produktpflege wird von manueller Shop-Administration zu einem wiederholbaren Datenprozess.
 

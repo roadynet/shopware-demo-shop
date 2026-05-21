@@ -54,24 +54,15 @@ final class AdminShopwareDemoProductController extends AbstractController
      * @return array{
      *     id:int,
      *     title:string,
-     *     description:string,
-     *     sections:list<array{code:string, title:string, sortOrder:int}>
+     *     description:string
      * }
      */
     private function normalizeLesson(Lesson $lesson): array
     {
-        $sections = $lesson->getSections()->toArray();
-        usort($sections, static fn ($a, $b): int => $a->getSortOrder() <=> $b->getSortOrder());
-
         return [
             'id' => (int) $lesson->getId(),
             'title' => $lesson->getTitle(),
             'description' => (string) $lesson->getDescription(),
-            'sections' => array_map(static fn ($section): array => [
-                'code' => $section->getCode(),
-                'title' => (string) $section->getTitle(),
-                'sortOrder' => (int) $section->getSortOrder(),
-            ], $sections),
         ];
     }
 }
