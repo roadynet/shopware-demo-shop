@@ -1,16 +1,16 @@
-# Case Study: Shopware Demo Shop
+# Case Study: SkillBuilder to Shopware Demo Shop
 
 ## Overview
 
 The Shopware Demo Shop is the visible e-commerce target for SkillBuilder. Published SkillBuilder courses are exported directly into Shopware as products, while lesson chapters become categories.
 
-The repository also contains a compact frontend prototype for portfolio use. It presents a realistic e-commerce flow without using production customer data or payment providers.
+The repository also contains a compact storefront prototype for portfolio use. It presents a realistic e-commerce flow without using production customer data or payment providers.
 
 This is explicitly a demo shop: no real orders, no real payment, no sale. Storefront purchase and checkout actions are marked or blocked so the project can be evaluated without creating commercial transactions.
 
 ## Goal
 
-The project adds an e-commerce example to the portfolio and demonstrates a concrete automation path from a learning platform into a Shopware shop.
+The project demonstrates a concrete automation path from a learning platform into a Shopware-oriented shop.
 
 The important integration is:
 
@@ -18,6 +18,15 @@ The important integration is:
 - SkillBuilder reads published lessons
 - Shopware products are created or updated via Admin API
 - unpublished course products and categories are hidden again
+
+## Business Value
+
+The business idea is simple: digital course providers should not maintain the same catalogue twice.
+
+- SkillBuilder remains the source of truth for course content.
+- Shopware becomes the public commerce surface.
+- Only approved and published lessons become visible products.
+- Product and category maintenance becomes an admin workflow instead of manual copy-paste work.
 
 ## Implemented Scope
 
@@ -33,10 +42,11 @@ The important integration is:
 
 ## Shopware-Relevance
 
-The SkillBuilder data model maps directly to Shopware:
+The SkillBuilder data model maps directly to Shopware concepts:
 
-- lessons become products
-- lesson sections become category/navigation data
+- lessons become products through the Admin API
+- lesson sections become category and navigation data
+- visibility is controlled by publication status
 - cart actions can map to line item endpoints
 - checkout state can later use Shopware customer, shipping and payment flows
 

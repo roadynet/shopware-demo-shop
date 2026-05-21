@@ -1,38 +1,54 @@
 # Shopware Demo Shop
 
-Portfolio-Projekt fur einen Shopware-orientierten Demo-Shop mit direkter SkillBuilder-Anbindung.
+Demo eines Shopware-orientierten E-Commerce-Projekts mit automatisierter SkillBuilder-Produktintegration.
 
-**Kernidee:** SkillBuilder pflegt veroeffentlichte Kurse automatisch als Produkte in Shopware ein. Ein Admin-Button in SkillBuilder exportiert Lessons als Shopware-Produkte und Kapitel als Shopware-Kategorien. Der Shop ist damit nicht nur ein statischer Demo-Shop, sondern zeigt die Verbindung zwischen Lernplattform und E-Commerce.
+**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
 
-**Wichtig:** Der Shop ist ein Demo-Shop. Es werden keine echten Bestellungen, Zahlungen oder Verkaeufe durchgefuehrt. Kauf- und Checkout-Aktionen sind in der Storefront sichtbar als Demo gekennzeichnet beziehungsweise deaktiviert.
+**Live-Demo:** [sw.mcmonaco.de](https://sw.mcmonaco.de)
 
-Der lokale Prototyp zeigt einen kleinen Concept Store mit Produktkatalog, Suche, Kategorie-Filter, Warenkorb, Versandkostenlogik und Checkout-Simulation. Er ist bewusst ohne echte Kundendaten, Zahlungen oder produktive Shopware-Zugangsdaten gebaut.
+**Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
-## Warum dieses Projekt existiert
+## Screenshots
 
-Das Projekt erweitert das Portfolio neben SkillBuilder um ein E-Commerce-Beispiel. Es zeigt, wie Inhalte aus SkillBuilder direkt in einen Shopware-Shop uebertragen werden koennen:
+### Storefront
 
-- SkillBuilder-Kurs = Shopware-Produkt
-- SkillBuilder-Kapitel = Shopware-Kategorie
-- nur veroeffentlichte SkillBuilder-Kurse werden im Shop sichtbar
-- nicht mehr veroeffentlichte Kurse werden im Shop deaktiviert beziehungsweise ausgeblendet
+![Shopware Demo Startseite](docs/screenshots/shop-home.png)
 
-Damit ist der Shop ein sichtbares Zielsystem fuer SkillBuilder-Inhalte und demonstriert eine realistische Admin-Automation statt nur ein isoliertes Frontend.
+### Produktliste
+
+![Shopware Produktliste](docs/screenshots/product-listing.png)
+
+### SkillBuilder-Kurse in Shopware
+
+![SkillBuilder Kurse als Shopware-Produkte](docs/screenshots/skillbuilder-category.png)
+
+### Demo-Warenkorb ohne Verkauf
+
+![Demo-Warenkorb ohne Verkauf](docs/screenshots/demo-cart.png)
 
 ## Features
 
-- Produktlisting mit Bildern, Kategorien, Preisen und Badges
-- Suche und Kategorie-Filter
-- Warenkorb mit Mengensteuerung
-- Zwischensumme, Versandkosten und Gesamtbetrag
-- Checkout-nahe Demo-Strecke ohne echte Zahlung
-- responsive UI fur Desktop und Mobile
-- dokumentierte SkillBuilder-zu-Shopware-Produktpipeline
+- Produktkatalog
+- Suche und Filter
+- Warenkorb-Ansicht
+- Checkout-nahe Demo ohne echte Zahlung
 - sichtbarer Demo-Hinweis: keine Bestellung, keine Zahlung, kein Verkauf
+- SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
+- Kapitel aus SkillBuilder werden als Shopware-Kategorien abgebildet
+- nicht mehr veroeffentlichte Kurse werden in Shopware deaktiviert oder ausgeblendet
+
+## Tech Stack
+
+- PHP / Symfony im SkillBuilder Backend
+- Shopware 6 Konzepte und Admin API
+- API-basierter Produktimport
+- JavaScript
+- HTML / CSS
+- Git / GitHub
 
 ## SkillBuilder Integration
 
-In SkillBuilder gibt es im Admin-Bereich einen Button **Shopware Demo-Produkte**. Dieser Button stoesst den Import in Shopware an:
+In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. Dieser Button stoesst den Import in Shopware an:
 
 1. SkillBuilder liest alle Lessons mit Status `published`.
 2. Fuer jede veroeffentlichte Lesson wird ein Shopware-Produkt mit der Produktnummer `SB-COURSE-{id}` erzeugt oder aktualisiert.
@@ -41,12 +57,21 @@ In SkillBuilder gibt es im Admin-Bereich einen Button **Shopware Demo-Produkte**
 
 Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
 
-## Tech Stack
+## Business-Nutzen
 
-- HTML
-- CSS
-- JavaScript
-- CSS ohne externes UI-Framework
+Dieses Projekt zeigt einen realistischen Workflow fuer Anbieter digitaler Inhalte:
+
+- Kursinhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
+- Nur freigegebene Inhalte erscheinen automatisch im Shop.
+- Der Shop wird zum sichtbaren Verkaufskanal fuer SkillBuilder-Inhalte.
+- Admins koennen Produkte und Kategorien per Button synchronisieren.
+- Die Integration verbindet Lernplattform, E-Commerce und Content-Automation.
+
+## Warum dieses Projekt existiert
+
+Das Projekt erweitert SkillBuilder um ein E-Commerce-Beispiel. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform und Shopware-naher Storefront.
+
+Der Shop ist bewusst als Demo markiert. Es werden keine echten Kundendaten, Zahlungen oder produktiven Zugangsdaten verarbeitet.
 
 ## Lokal starten
 
@@ -54,19 +79,13 @@ Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie w
 npm run dev
 ```
 
-Danach ist die Demo standardmassig unter `http://127.0.0.1:5173` erreichbar.
+Danach ist die lokale Demo standardmaessig unter `http://127.0.0.1:5173` erreichbar.
 
-Alternativ kann `index.html` direkt im Browser geoffnet werden.
+Alternativ kann `index.html` direkt im Browser geoeffnet werden.
 
-## Shopware-Ausbaupfad
-
-Naechste sinnvolle Schritte:
+## Naechste Schritte
 
 - Import-Ergebnis im SkillBuilder Admin mit Detailprotokoll anzeigen
 - Produktbilder und Preise aus SkillBuilder-Metadaten ableiten
-- Warenkorb- und Checkout-Aktionen gegen Shopware-Endpunkte verdrahten
-- Screenshots und Case Study wie im SkillBuilder-Showcase ergaenzen
-
-## Hinweis zur lokalen Shopware-Installation
-
-Die produktive Demo laeuft in einer echten Shopware-Installation. Dieses Repository dokumentiert und visualisiert den Shop-Auftritt und die SkillBuilder-Integration, enthaelt aber bewusst keine produktiven Shopware-Zugangsdaten, Datenbankdaten oder Server-Konfigurationen.
+- Warenkorb- und Checkout-Aktionen gegen echte Shopware-Endpunkte verdrahten
+- weitere Screenshots oder kurzes Demo-Video ergaenzen
