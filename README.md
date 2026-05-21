@@ -1,12 +1,12 @@
-# Shopware Demo Shop
+# SkillBuilder Shopware API Integration
 
 **Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
 
-Demo eines Shopware-orientierten E-Commerce-Projekts mit automatisierter SkillBuilder-Produktintegration.
+Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter SkillBuilder-Kurse ueber die Shopware Admin API.
 
-**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
+**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
 
-**Eigenständig konzipiert und umgesetzt:** Storefront-Demo, Demo-Shoplogik, Produkt- und Kategorie-Synchronisation, Shopware Admin API Import-Service und SkillBuilder-Admin-Anbindung.
+**Eigenstaendig konzipiert und umgesetzt:** Shopware Admin API Integration, Produkt- und Kategorie-Synchronisation, Statussteuerung ueber `published`, Admin-Workflow per Button, Storefront-Demo und Demo-Shoplogik.
 
 **Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
@@ -30,25 +30,31 @@ Demo eines Shopware-orientierten E-Commerce-Projekts mit automatisierter SkillBu
 
 ## Features
 
+- reale Shopware Admin API Synchronisation
+- SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
+- Kapitel aus SkillBuilder werden als Shopware-Kategorien abgebildet
+- Statussteuerung ueber `published`
+- automatische Aktivierung und Deaktivierung von Produkten
+- alte Kurs-Kategorien werden ausgeblendet
+- Admin-Workflow per Button
+- Environment-basierte API-Konfiguration
 - Produktkatalog
 - Suche und Filter
 - Warenkorb-Ansicht
 - Checkout-nahe Demo ohne echte Zahlung
 - sichtbarer Demo-Hinweis: keine Bestellung, keine Zahlung, kein Verkauf
-- SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
-- Kapitel aus SkillBuilder werden als Shopware-Kategorien abgebildet
-- nicht mehr veroeffentlichte Kurse werden in Shopware deaktiviert oder ausgeblendet
 
 ## Tech Stack
 
 - PHP / Symfony im SkillBuilder Backend
-- Shopware 6 Konzepte und Admin API
-- API-basierter Produktimport
+- Shopware 6
+- Shopware Admin API
+- API-basierter Produkt- und Kategorieimport
 - JavaScript
 - HTML / CSS
 - Git / GitHub
 
-## SkillBuilder Integration
+## API-basierte Produktsynchronisation
 
 In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. Dieser Button stoesst den Import in Shopware an:
 
@@ -58,6 +64,8 @@ In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. 
 4. Produkte und Kurs-Kategorien, die nicht mehr zu veroeffentlichten Lessons gehoeren, werden in Shopware deaktiviert beziehungsweise ausgeblendet.
 
 Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
+
+Diese Integration laeuft gegen eine echte Shopware-Installation. Der oeffentliche Code-Auszug ist bereinigt, damit keine produktiven Zugangsdaten oder Serverdetails veroeffentlicht werden.
 
 ### Code-Auszug
 
@@ -70,17 +78,18 @@ Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
 ## Business-Nutzen
 
-Dieses Projekt zeigt einen realistischen Workflow fuer Anbieter digitaler Inhalte:
+Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
 
 - Kursinhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
 - Nur freigegebene Inhalte erscheinen automatisch im Shop.
 - Der Shop wird zum sichtbaren Verkaufskanal fuer SkillBuilder-Inhalte.
 - Admins koennen Produkte und Kategorien per Button synchronisieren.
 - Die Integration verbindet Lernplattform, E-Commerce und Content-Automation.
+- Produktpflege wird von manueller Shop-Administration zu einem wiederholbaren Datenprozess.
 
 ## Warum dieses Projekt existiert
 
-Das Projekt erweitert SkillBuilder um ein E-Commerce-Beispiel. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform und Shopware-naher Storefront.
+Das Projekt erweitert SkillBuilder um eine produktionsnahe E-Commerce-Integration. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform, Shopware Admin API und Storefront.
 
 Der Shop ist bewusst als Demo markiert. Es werden keine echten Kundendaten, Zahlungen oder produktiven Zugangsdaten verarbeitet.
 
