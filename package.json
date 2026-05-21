@@ -1,0 +1,12 @@
+{
+  "name": "shopware-demo-shop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "php -S 127.0.0.1:5173",
+    "start": "php -S 127.0.0.1:5173"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
