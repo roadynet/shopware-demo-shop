@@ -4,6 +4,8 @@ Portfolio-Projekt fur einen Shopware-orientierten Demo-Shop mit direkter SkillBu
 
 **Kernidee:** SkillBuilder pflegt veroeffentlichte Kurse automatisch als Produkte in Shopware ein. Ein Admin-Button in SkillBuilder exportiert Lessons als Shopware-Produkte und Kapitel als Shopware-Kategorien. Der Shop ist damit nicht nur ein statischer Demo-Shop, sondern zeigt die Verbindung zwischen Lernplattform und E-Commerce.
 
+**Wichtig:** Der Shop ist ein Demo-Shop. Es werden keine echten Bestellungen, Zahlungen oder Verkaeufe durchgefuehrt. Kauf- und Checkout-Aktionen sind in der Storefront sichtbar als Demo gekennzeichnet beziehungsweise deaktiviert.
+
 Der lokale Prototyp zeigt einen kleinen Concept Store mit Produktkatalog, Suche, Kategorie-Filter, Warenkorb, Versandkostenlogik und Checkout-Simulation. Er ist bewusst ohne echte Kundendaten, Zahlungen oder produktive Shopware-Zugangsdaten gebaut.
 
 ## Warum dieses Projekt existiert
@@ -26,6 +28,7 @@ Damit ist der Shop ein sichtbares Zielsystem fuer SkillBuilder-Inhalte und demon
 - Checkout-nahe Demo-Strecke ohne echte Zahlung
 - responsive UI fur Desktop und Mobile
 - dokumentierte SkillBuilder-zu-Shopware-Produktpipeline
+- sichtbarer Demo-Hinweis: keine Bestellung, keine Zahlung, kein Verkauf
 
 ## SkillBuilder Integration
 

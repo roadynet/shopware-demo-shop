@@ -6,6 +6,8 @@ The Shopware Demo Shop is the visible e-commerce target for SkillBuilder. Publis
 
 The repository also contains a compact frontend prototype for portfolio use. It presents a realistic e-commerce flow without using production customer data or payment providers.
 
+This is explicitly a demo shop: no real orders, no real payment, no sale. Storefront purchase and checkout actions are marked or blocked so the project can be evaluated without creating commercial transactions.
+
 ## Goal
 
 The project adds an e-commerce example to the portfolio and demonstrates a concrete automation path from a learning platform into a Shopware shop.
@@ -27,6 +29,7 @@ The important integration is:
 - checkout summary
 - responsive layout
 - SkillBuilder-to-Shopware product import documentation
+- visible no-sales demo disclaimer
 
 ## Shopware-Relevance
 
