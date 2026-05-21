@@ -57,6 +57,15 @@ In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. 
 
 Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
 
+### Code-Auszug
+
+Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
+
+- [Symfony Admin Controller](examples/skillbuilder-shopware-import/AdminShopwareDemoProductController.php)
+- [Shopware Admin API Import Service](examples/skillbuilder-shopware-import/ShopwareDemoProductImporter.php)
+
+Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
+
 ## Business-Nutzen
 
 Dieses Projekt zeigt einen realistischen Workflow fuer Anbieter digitaler Inhalte:
