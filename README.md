@@ -2,6 +2,8 @@
 
 **Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
 
+Connected SkillBuilder showcase repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
+
 Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter SkillBuilder-Kurse ueber die Shopware Admin API.
 
 **Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
