@@ -1,10 +1,12 @@
 # Shopware Demo Shop
 
+**Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
+
 Demo eines Shopware-orientierten E-Commerce-Projekts mit automatisierter SkillBuilder-Produktintegration.
 
 **Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen Shopware-Shop ein. Lessons werden Produkte, Kapitel werden Kategorien, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert oder ausgeblendet.
 
-**Live-Demo:** [sw.mcmonaco.de](https://sw.mcmonaco.de)
+**Eigenständig konzipiert und umgesetzt:** Storefront-Demo, Demo-Shoplogik, Produkt- und Kategorie-Synchronisation, Shopware Admin API Import-Service und SkillBuilder-Admin-Anbindung.
 
 **Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
