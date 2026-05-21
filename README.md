@@ -12,6 +12,20 @@ Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter Skil
 
 **Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
+## Integration Flow
+
+```mermaid
+flowchart LR
+    A["SkillBuilder Admin"] --> B["Button: Shopware Demo-Produkte"]
+    B --> C["Symfony Import Service"]
+    C --> D["Shopware Admin API"]
+    D --> E["Produkte in Shopware"]
+    E --> F["Storefront: SkillBuilder Kurse"]
+    C --> G["Sync-Log im SkillBuilder Admin"]
+```
+
+Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Kategorien synchronisiert. Die Produkte werden gesammelt der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
+
 ## Screenshots
 
 ### Storefront
@@ -106,7 +120,7 @@ Alternativ kann `index.html` direkt im Browser geoeffnet werden.
 
 ## Naechste Schritte
 
-- Import-Ergebnis im SkillBuilder Admin mit Detailprotokoll anzeigen
+- Sync-Log um eine Detailansicht pro Produkt erweitern
 - Produktbilder und Preise aus SkillBuilder-Metadaten ableiten
-- Warenkorb- und Checkout-Aktionen gegen echte Shopware-Endpunkte verdrahten
+- Shopware-Produktdetailseite weiter an SkillBuilder-Metadaten anreichern
 - weitere Screenshots oder kurzes Demo-Video ergaenzen
