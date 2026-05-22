@@ -4,15 +4,21 @@
 
 Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
-Funktionsfaehige Shopware-Demo mit realer Synchronisation veroeffentlichter SkillBuilder-Kurse ueber die Shopware Admin API.
+## Quick Facts
+
+| Bereich | Inhalt |
+| --- | --- |
+| Projekt | Funktionsfaehige Shopware-Integration fuer SkillBuilder |
+| Live-Demo | [https://sw.mcmonaco.de](https://sw.mcmonaco.de) |
+| Echt umgesetzt | SkillBuilder Admin-Button synchronisiert veroeffentlichte Lessons ueber die Shopware Admin API als Produkte |
+| Mapping | Lessons werden Produkte. Kapitel werden nicht als Kategorien synchronisiert. |
+| Sichtbarkeit | Nur `published` Lessons erscheinen im Shop; nicht mehr veroeffentlichte Produkte werden deaktiviert |
+| Mein Anteil | Shopware Admin API Integration, Symfony Import-Service, Statuslogik, Storefront-Demo, Demo-Schutz |
+| Demo-Schutz | Keine echten Bestellungen, keine Zahlung, keine Registrierung, kein Kontaktformular, keine personenbezogenen Daten |
+
+**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Die Storefront zeigt das Ergebnis, ohne Kundendaten oder Bestellungen zu verarbeiten.
 
 **Positioning:** PHP/Symfony backend integration, Shopware 6 concepts, Admin API automation, product synchronization, and demo storefront operation.
-
-**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Lessons werden Produkte, nicht mehr veroeffentlichte Kurse werden im Shop wieder deaktiviert.
-
-**Eigenstaendig konzipiert und umgesetzt:** Shopware Admin API Integration, Produkt-Synchronisation, Statussteuerung ueber `published`, Admin-Workflow per Button, Storefront-Demo und Demo-Shoplogik.
-
-**Status:** Demo-Shop, keine echten Bestellungen, keine Zahlung, kein Verkauf.
 
 ## Integration Flow
 
@@ -60,6 +66,7 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 - Warenkorb-Ansicht
 - Checkout-nahe Demo ohne echte Zahlung
 - sichtbarer Demo-Hinweis: keine Bestellung, keine Zahlung, kein Verkauf
+- deaktivierte Registrierung, Login-Formulare und Kontaktformulare fuer eine DSGVO-sichere Portfolio-Demo
 
 ## Tech Stack
 
