@@ -4,7 +4,7 @@
 
 The Shopware demo is the visible e-commerce target for SkillBuilder. Published SkillBuilder courses are synchronized into a real Shopware installation through the Shopware Admin API. Lessons become products, and unpublished content is removed from storefront visibility again.
 
-The repository also contains a compact storefront prototype for portfolio use. It presents a realistic e-commerce flow without using production customer data or payment providers.
+The repository also contains a compact storefront prototype for portfolio use. It presents a commerce-style product flow without using production customer data, registration forms, contact forms, orders, or payment providers.
 
 This is explicitly a demo shop: no real orders, no real payment, no sale. Storefront purchase and checkout actions are marked or blocked so the project can be evaluated without creating commercial transactions.
 
@@ -18,7 +18,7 @@ The important integration is:
 - SkillBuilder reads published lessons
 - Shopware products are created or updated via Admin API
 - unpublished course products are deactivated
-- orphaned categories from earlier demo imports are hidden again
+- obsolete child categories from earlier demo import attempts are hidden again
 - API credentials are configured through environment variables
 
 ## Business Value
@@ -34,7 +34,7 @@ The business idea is simple: digital course providers should not maintain the sa
 ## Implemented Scope
 
 - product catalogue
-- category filtering
+- storefront filtering in the prototype
 - search
 - cart state
 - quantity changes
@@ -51,6 +51,8 @@ The SkillBuilder data model maps directly to Shopware concepts:
 
 - lessons become products through the Admin API
 - published lesson data becomes Shopware product data
+- chapters are not synchronized as Shopware categories
+- products are assigned to the single shop category `SkillBuilder Kurse`
 - visibility is controlled by publication status
 - cart actions remain blocked in the public demo to avoid real orders
 - checkout and payment are intentionally disabled for portfolio use

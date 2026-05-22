@@ -18,7 +18,7 @@ final class ShopwareDemoProductImporter
      *     title:string,
      *     description:string
      * }> $lessons
-     * @return array{created:int, updated:int, categories:int, skipped:int, deactivated:int, categoriesHidden:int}
+     * @return array{created:int, updated:int, skipped:int, deactivated:int, obsoleteChildCategoriesHidden:int}
      */
     public function importLessons(array $lessons): array
     {
@@ -41,10 +41,9 @@ final class ShopwareDemoProductImporter
         $result = [
             'created' => 0,
             'updated' => 0,
-            'categories' => 0,
             'skipped' => 0,
             'deactivated' => 0,
-            'categoriesHidden' => 0,
+            'obsoleteChildCategoriesHidden' => 0,
         ];
         $activeProductNumbers = [];
 
@@ -55,7 +54,6 @@ final class ShopwareDemoProductImporter
             }
 
             $categoryIds = [$skillBuilderCategoryId];
-            $result['categories']++;
 
             $productNumber = self::PRODUCT_PREFIX . $lesson['id'];
             $activeProductNumbers[] = $productNumber;
@@ -85,7 +83,7 @@ final class ShopwareDemoProductImporter
         }
 
         $result['deactivated'] = $this->deactivateUnpublishedProducts($activeProductNumbers, $config);
-        $result['categoriesHidden'] = $this->hideChildCategories($skillBuilderCategoryId, $config);
+        $result['obsoleteChildCategoriesHidden'] = $this->hideChildCategories($skillBuilderCategoryId, $config);
 
         return $result;
     }

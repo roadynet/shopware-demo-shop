@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="360" viewBox="0 0 1120 360" role="img" aria-labelledby="title desc">
+  <title id="title">SkillBuilder to Shopware integration architecture</title>
+  <desc id="desc">SkillBuilder admin triggers a Symfony import service. The service sends published lessons to the Shopware Admin API as products. Products appear in the Shopware storefront. Sync results are written back to the SkillBuilder admin log.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1769ff" />
+    </marker>
+    <style>
+      .bg { fill: #f6f8fb; }
+      .box { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 8; }
+      .box-dark { fill: #0f172a; stroke: #0f172a; stroke-width: 2; rx: 8; }
+      .label { fill: #0f172a; font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 800; }
+      .small { fill: #526176; font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 600; }
+      .label-dark { fill: #fff; font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 800; }
+      .small-dark { fill: #bfdbfe; font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 600; }
+      .arrow { stroke: #1769ff; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .note { fill: #ecfdf5; stroke: #99f6e4; stroke-width: 2; rx: 8; }
+      .note-text { fill: #065f46; font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 800; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1120" height="360" />
+  <rect class="box-dark" x="40" y="70" width="210" height="110" />
+  <text class="label-dark" x="70" y="118">SkillBuilder</text>
+  <text class="small-dark" x="70" y="148">Admin button</text>
+  <path class="arrow" d="M250 125 H340" />
+  <rect class="box" x="340" y="70" width="220" height="110" />
+  <text class="label" x="370" y="118">Symfony</text>
+  <text class="small" x="370" y="148">Import service</text>
+  <path class="arrow" d="M560 125 H650" />
+  <rect class="box" x="650" y="70" width="210" height="110" />
+  <text class="label" x="680" y="118">Shopware</text>
+  <text class="small" x="680" y="148">Admin API</text>
+  <path class="arrow" d="M860 125 H950" />
+  <rect class="box-dark" x="950" y="70" width="130" height="110" />
+  <text class="label-dark" x="976" y="118">Store</text>
+  <text class="small-dark" x="976" y="148">Products</text>
+  <path class="arrow" d="M450 180 V240 H140 V195" />
+  <rect class="note" x="40" y="235" width="420" height="72" />
+  <text class="note-text" x="65" y="268">Published lessons become products.</text>
+  <text class="note-text" x="65" y="294">Chapters are not synchronized as categories.</text>
+  <path class="arrow" d="M760 180 V240 H540" />
+  <rect class="note" x="540" y="235" width="540" height="88" />
+  <text class="note-text" x="565" y="268">Sync result is written to the SkillBuilder admin log.</text>
+  <text class="note-text" x="565" y="294">Orders, payments and registration are disabled.</text>
+  <text class="note-text" x="565" y="318">Contact forms are disabled too.</text>
+</svg>

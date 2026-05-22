@@ -36,11 +36,11 @@ final class AdminShopwareDemoProductController extends AbstractController
             $this->addFlash(
                 'success',
                 sprintf(
-                    'Shopware import complete: %d created, %d updated, %d deactivated, %d categories hidden.',
+                    'Shopware import complete: %d created, %d updated, %d deactivated, %d old demo category remnants cleaned up.',
                     $result['created'],
                     $result['updated'],
                     $result['deactivated'],
-                    $result['categoriesHidden']
+                    $result['obsoleteChildCategoriesHidden']
                 )
             );
         } catch (\Throwable $exception) {

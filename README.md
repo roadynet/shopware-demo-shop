@@ -20,17 +20,13 @@ Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](ht
 
 **Positioning:** PHP/Symfony backend integration, Shopware 6 concepts, Admin API automation, product synchronization, and demo storefront operation.
 
-## Integration Flow
+## Architecture
 
-```mermaid
-flowchart LR
-    A["SkillBuilder Admin"] --> B["Button: Shopware Demo-Produkte"]
-    B --> C["Symfony Import Service"]
-    C --> D["Shopware Admin API"]
-    D --> E["Produkte in Shopware"]
-    E --> F["Storefront: SkillBuilder Kurse"]
-    C --> G["Sync-Log im SkillBuilder Admin"]
-```
+![SkillBuilder to Shopware architecture](docs/architecture-flow.svg)
+
+The important path is:
+
+`SkillBuilder Admin -> Symfony Import Service -> Shopware Admin API -> Shopware Products -> Storefront`
 
 Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Kategorien synchronisiert. Die Produkte werden gesammelt der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
 
@@ -58,7 +54,8 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 - SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
 - Statussteuerung ueber `published`
 - automatische Aktivierung und Deaktivierung von Produkten
-- alte Unterkategorien aus frueheren Demo-Importen werden ausgeblendet
+- veraltete Unterkategorien aus frueheren Demo-Importen werden ausgeblendet
+- Kapitel werden nicht als Kategorien angelegt oder synchronisiert
 - Admin-Workflow per Button
 - Environment-basierte API-Konfiguration
 - Produktkatalog
@@ -86,6 +83,7 @@ In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. 
 2. Fuer jede veroeffentlichte Lesson wird ein Shopware-Produkt mit der Produktnummer `SB-COURSE-{id}` erzeugt oder aktualisiert.
 3. Die Produkte werden der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
 4. Produkte, die nicht mehr zu veroeffentlichten Lessons gehoeren, werden in Shopware deaktiviert.
+5. Alte Demo-Unterkategorien werden ausgeblendet, damit keine frueheren Importversuche in der Navigation sichtbar bleiben.
 
 Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
 
@@ -106,7 +104,7 @@ Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
 
 - Kursinhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
 - Nur freigegebene Inhalte erscheinen automatisch im Shop.
-- Der Shop wird zum sichtbaren Verkaufskanal fuer SkillBuilder-Inhalte.
+- Der Shop wird zur sichtbaren Commerce-Oberflaeche fuer SkillBuilder-Inhalte.
 - Admins koennen Shopware-Produkte per Button synchronisieren.
 - Die Integration verbindet Lernplattform, E-Commerce und Content-Automation.
 - Produktpflege wird von manueller Shop-Administration zu einem wiederholbaren Datenprozess.
