@@ -108,6 +108,7 @@ Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
 - [Shopware Admin API Import Service](examples/skillbuilder-shopware-import/ShopwareDemoProductImporter.php)
 - [Recruiter project summary](docs/project-summary-for-recruiters.md)
 - [Interview Q&A](docs/interview-qa.md)
+- [Portfolio audit report](docs/audit-report-2026-05-23.md)
 
 Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
