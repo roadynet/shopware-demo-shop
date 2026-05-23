@@ -107,6 +107,7 @@ Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
 - [Symfony Admin Controller](examples/skillbuilder-shopware-import/AdminShopwareDemoProductController.php)
 - [Shopware Admin API Import Service](examples/skillbuilder-shopware-import/ShopwareDemoProductImporter.php)
 - [Recruiter project summary](docs/project-summary-for-recruiters.md)
+- [Interview Q&A](docs/interview-qa.md)
 
 Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
