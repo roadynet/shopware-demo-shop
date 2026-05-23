@@ -4,6 +4,17 @@
 
 Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
+**Recruiter summary:** real Shopware Admin API integration for SkillBuilder. Published SkillBuilder lessons are synchronized as Shopware products through an admin button in the Symfony application. The storefront shows the result as a demo shop with orders, payment, registration, and contact forms disabled.
+
+## What I Built
+
+- Admin-triggered product synchronization from SkillBuilder into Shopware
+- Shopware Admin API import workflow for published SkillBuilder lessons
+- stable product numbers with update instead of duplicate creation
+- activation/deactivation based on SkillBuilder publication status
+- storefront demo aligned visually with the SkillBuilder dashboard
+- no-sale demo protection: no checkout, no payment, no registration, no contact form
+
 ## Quick Facts
 
 | Bereich | Inhalt |
@@ -95,6 +106,7 @@ Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
 
 - [Symfony Admin Controller](examples/skillbuilder-shopware-import/AdminShopwareDemoProductController.php)
 - [Shopware Admin API Import Service](examples/skillbuilder-shopware-import/ShopwareDemoProductImporter.php)
+- [Recruiter project summary](docs/project-summary-for-recruiters.md)
 
 Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
