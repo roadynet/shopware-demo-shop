@@ -1,0 +1,153 @@
+name: Portfolio Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Documentation and demo checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check PHP example syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            php -l "$file"
+          done < <(find examples -name '*.php' -type f | sort)
+
+      - name: Check JavaScript syntax
+        run: node --check src/main.js
+
+      - name: Check local Markdown links
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          import sys
+
+          failures = []
+          pattern = re.compile(r'!?\[[^\]]*\]\(([^)]+)\)')
+
+          for path in Path('.').rglob('*.md'):
+              if 'node_modules' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              for match in pattern.finditer(text):
+                  target = match.group(1).strip()
+                  if not target or target.startswith(('http://', 'https://', 'mailto:', '#')):
+                      continue
+                  clean = target.split('#', 1)[0]
+                  if not clean:
+                      continue
+                  if not (path.parent / clean).exists():
+                      failures.append(f'{path}: missing local link target {target}')
+
+          if failures:
+              print('\n'.join(failures))
+              sys.exit(1)
+
+      - name: Check public wording consistency
+        shell: python
+        run: |
+          from pathlib import Path
+          import sys
+
+          forbidden = [
+              'Kapitel als ' + 'Kategorien',
+              'Kategorien ' + 'exportieren',
+              'Kapitel werden ' + 'Kategorien',
+              'chapters become ' + 'categories',
+              'Lessons als Produkte, ' + 'Kapitel',
+          ]
+          suffixes = {'.md', '.php', '.js', '.css', '.html', '.svg', '.txt', '.yml', '.yaml'}
+          failures = []
+
+          for path in Path('.').rglob('*'):
+              if '.git' in path.parts or 'node_modules' in path.parts:
+                  continue
+              if path.suffix.lower() not in suffixes:
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              lower = text.lower()
+              for phrase in forbidden:
+                  if phrase.lower() in lower:
+                      failures.append(f'{path}: outdated wording found')
+
+          if failures:
+              print('\n'.join(failures))
+              sys.exit(1)
+
+      - name: Check no-sale demo guardrails
+        shell: python
+        run: |
+          from pathlib import Path
+          import sys
+
+          source = Path('src/main.js').read_text(encoding='utf-8')
+          required = [
+              'Keine echten Bestellungen',
+              'Keine Zahlung aktiv',
+              'Bestellung deaktiviert',
+              'Demo-Shop',
+          ]
+          missing = [text for text in required if text not in source]
+          forbidden = ['alert(', 'account/login', 'register']
+          present = [text for text in forbidden if text in source]
+
+          if missing or present:
+              if missing:
+                  print('Missing demo guardrails: ' + ', '.join(missing))
+              if present:
+                  print('Forbidden storefront behavior found: ' + ', '.join(present))
+              sys.exit(1)
+
+      - name: Check for obvious secret patterns
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          import sys
+
+          patterns = [
+              re.compile(r'github_pat_[A-Za-z0-9_]+'),
+              re.compile(r'ghp_[A-Za-z0-9_]+'),
+              re.compile(r'sk-[A-Za-z0-9]{20,}'),
+              re.compile(r'APP_SECRET\s*='),
+              re.compile(r'DATABASE_URL\s*='),
+          ]
+          suffixes = {'.md', '.php', '.js', '.css', '.html', '.svg', '.txt', '.yml', '.yaml'}
+          failures = []
+
+          for path in Path('.').rglob('*'):
+              if '.git' in path.parts or '.github' in path.parts or 'node_modules' in path.parts:
+                  continue
+              if path.suffix.lower() not in suffixes:
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              for pattern in patterns:
+                  if pattern.search(text):
+                      failures.append(f'{path}: possible secret pattern found')
+
+          if failures:
+              print('\n'.join(failures))
+              sys.exit(1)

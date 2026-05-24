@@ -1,5 +1,7 @@
 # SkillBuilder Shopware Admin API Integration
 
+[![Portfolio Audit](https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml/badge.svg)](https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml)
+
 **Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
 
 Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
