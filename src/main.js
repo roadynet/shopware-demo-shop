@@ -9,7 +9,7 @@ const products = [
     color: '#1769ff',
     image:
       'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
-    description: 'Automatisch aus SkillBuilder exportierter Kurs. Sichtbar, weil die Lesson veroeffentlicht ist.'
+    description: 'Automatisch aus SkillBuilder exportierte Lesson. Sichtbar, weil sie veroeffentlicht ist.'
   },
   {
     id: 'symfony-update',
@@ -45,7 +45,7 @@ const products = [
     color: '#5b21b6',
     image:
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80',
-    description: 'Ein weiterer veroeffentlichter SkillBuilder-Kurs als sichtbares Shopware-Produkt.'
+    description: 'Eine weitere veroeffentlichte SkillBuilder-Lesson als sichtbares Shopware-Produkt.'
   },
   {
     id: 'quantum-spiritualitaet',
@@ -57,7 +57,7 @@ const products = [
     color: '#1e3a8a',
     image:
       'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-    description: 'Kursdaten werden nicht doppelt gepflegt, sondern ueber den Admin-Import synchronisiert.'
+    description: 'Lesson-Daten werden nicht doppelt gepflegt, sondern ueber den Admin-Import synchronisiert.'
   },
   {
     id: 'shopware-api',
@@ -187,7 +187,7 @@ function render() {
           <h1>Veroeffentlichte Lessons werden Shopware-Produkte.</h1>
           <p>
             Diese Portfolio-Demo zeigt die echte Shopware Admin API Integration:
-            SkillBuilder synchronisiert veroeffentlichte Kurse per Admin-Button als sichtbare Produkte.
+            SkillBuilder synchronisiert veroeffentlichte Lessons per Admin-Button als sichtbare Produkte.
             Bestellungen und Zahlungen sind bewusst deaktiviert.
           </p>
           <div class="hero-actions">

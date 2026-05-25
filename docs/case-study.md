@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Shopware demo is the visible e-commerce target for SkillBuilder. Published SkillBuilder courses are synchronized into a real Shopware installation through the Shopware Admin API. Lessons become products, and unpublished content is removed from storefront visibility again.
+The Shopware demo is the visible e-commerce target for SkillBuilder. Published SkillBuilder lessons are synchronized into a real Shopware installation through the Shopware Admin API. Lessons become products, and unpublished content is removed from storefront visibility again.
 
 The repository also contains a compact storefront prototype for portfolio use. It presents a commerce-style product flow without using production customer data, registration forms, contact forms, orders, or payment providers.
 
@@ -17,15 +17,15 @@ The important integration is:
 - SkillBuilder admin clicks the Shopware import button
 - SkillBuilder reads published lessons
 - Shopware products are created or updated via Admin API
-- unpublished course products are deactivated
+- unpublished lesson products are deactivated
 - obsolete child categories from earlier demo import attempts are hidden again
 - API credentials are configured through environment variables
 
 ## Business Value
 
-The business idea is simple: digital course providers should not maintain the same catalogue twice.
+The business idea is simple: digital learning-content providers should not maintain the same catalogue twice.
 
-- SkillBuilder remains the source of truth for course content.
+- SkillBuilder remains the source of truth for lesson content.
 - Shopware becomes the public commerce surface.
 - Only approved and published lessons become visible products.
 - Product maintenance becomes an admin workflow instead of manual copy-paste work.
@@ -61,6 +61,6 @@ The SkillBuilder data model maps directly to Shopware concepts:
 
 1. Extend the sync log with per-product details.
 2. Derive product images and prices from SkillBuilder metadata.
-3. Add a stronger product-detail presentation for SkillBuilder course metadata.
+3. Add a stronger product-detail presentation for SkillBuilder lesson metadata.
 4. Add a short walkthrough video for recruiters and Shopware agencies.
 5. Add automated checks for the public storefront prototype.

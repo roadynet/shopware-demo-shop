@@ -410,7 +410,7 @@ final class ShopwareDemoProductImporter
         $description = trim($lesson['description']);
 
         return implode("\n\n", [
-            $description !== '' ? $description : 'Automatically exported SkillBuilder demo course.',
+            $description !== '' ? $description : 'Automatically exported SkillBuilder demo lesson.',
             sprintf('Generated from SkillBuilder lesson #%d.', $lesson['id']),
             'Product data is synchronized through the SkillBuilder admin workflow.',
         ]);

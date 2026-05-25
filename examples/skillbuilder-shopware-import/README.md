@@ -9,7 +9,7 @@ The example shows the relevant production idea without exposing credentials or s
 - lessons become Shopware products
 - lessons are assigned to the `SkillBuilder Kurse` shop category
 - chapters are not synchronized as Shopware categories
-- missing or unpublished course products are deactivated
+- missing or unpublished lesson products are deactivated
 - obsolete child categories from earlier demo import attempts are hidden from navigation
 - Shopware Admin API credentials are read from environment variables
 

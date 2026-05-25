@@ -29,7 +29,7 @@ Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](ht
 | Mein Anteil | Shopware Admin API Integration, Symfony Import-Service, Statuslogik, Storefront-Demo, Demo-Schutz |
 | Demo-Schutz | Keine echten Bestellungen, keine Zahlung, keine Registrierung, kein Kontaktformular, keine personenbezogenen Daten |
 
-**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Kurse per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Die Storefront zeigt das Ergebnis, ohne Kundendaten oder Bestellungen zu verarbeiten.
+**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Lessons per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Die Storefront zeigt das Ergebnis, ohne Kundendaten oder Bestellungen zu verarbeiten.
 
 **Positioning:** PHP/Symfony backend integration, Shopware 6 concepts, Admin API automation, product synchronization, and demo storefront operation.
 
@@ -64,7 +64,7 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 ## Features
 
 - reale Shopware Admin API Synchronisation
-- SkillBuilder-Import: veroeffentlichte Kurse werden als Shopware-Produkte erzeugt
+- SkillBuilder-Import: veroeffentlichte Lessons werden als Shopware-Produkte erzeugt
 - Statussteuerung ueber `published`
 - automatische Aktivierung und Deaktivierung von Produkten
 - veraltete Unterkategorien aus frueheren Demo-Importen werden ausgeblendet
