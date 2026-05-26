@@ -92,7 +92,24 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 
 The public repository contains only placeholder configuration in [.env.example](.env.example).
 
-Real Shopware Admin API credentials are never committed. In production, these values are configured on the server or as CI secrets:
+Real Shopware Admin API credentials are never committed. In production, these values are configured on the server, as CI secrets, or in a private config file outside both application directories:
+
+```text
+/www/htdocs/example/
+├── projects/
+│   ├── sb/
+│   └── shopware/
+└── private-config/
+    └── skillbuilder-shopware.env
+```
+
+SkillBuilder can point to the external file with:
+
+```env
+SKILLBUILDER_SECRETS_FILE=/www/htdocs/example/private-config/skillbuilder-shopware.env
+```
+
+The external file contains values such as:
 
 ```env
 SHOPWARE_ADMIN_BASE_URL=

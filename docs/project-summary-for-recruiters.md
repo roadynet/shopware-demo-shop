@@ -34,7 +34,7 @@ SkillBuilder Admin -> Symfony Import Service -> Shopware Admin API -> Product ca
 - Old child-category remnants from earlier demo experiments are hidden from navigation.
 - API credentials are configured outside the repository through environment variables.
 
-The repository includes [.env.example](../.env.example) with placeholder names only. Real Shopware Admin API credentials are configured outside GitHub.
+The repository includes [.env.example](../.env.example) with placeholder names only. Real Shopware Admin API credentials are configured outside GitHub and can live in a private server-side config file outside both application directories.
 
 ## Important Mapping Boundary
 
