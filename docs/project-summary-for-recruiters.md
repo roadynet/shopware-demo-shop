@@ -34,6 +34,8 @@ SkillBuilder Admin -> Symfony Import Service -> Shopware Admin API -> Product ca
 - Old child-category remnants from earlier demo experiments are hidden from navigation.
 - API credentials are configured outside the repository through environment variables.
 
+The repository includes [.env.example](../.env.example) with placeholder names only. Real Shopware Admin API credentials are configured outside GitHub.
+
 ## Important Mapping Boundary
 
 Lessons become products.
@@ -50,6 +52,8 @@ The public storefront is intentionally not a sales channel. It shows the integra
 - no contact form
 - no checkout completion
 - visible demo notices in the storefront
+
+Admin API credentials belong only on the server side. The storefront JavaScript must not contain credentials, tokens, or private API keys.
 
 ## Why This Is Relevant
 

@@ -121,6 +121,26 @@ jobs:
                   print('Forbidden storefront behavior found: ' + ', '.join(present))
               sys.exit(1)
 
+      - name: Check environment file policy
+        shell: python
+        run: |
+          from pathlib import Path
+          import sys
+
+          allowed = {'.env.example'}
+          forbidden = []
+
+          for path in Path('.').rglob('.env*'):
+              if '.git' in path.parts or 'node_modules' in path.parts:
+                  continue
+              if path.name not in allowed:
+                  forbidden.append(str(path))
+
+          if forbidden:
+              print('Real environment files must not be committed:')
+              print('\n'.join(forbidden))
+              sys.exit(1)
+
       - name: Check for obvious secret patterns
         shell: python
         run: |
@@ -140,6 +160,8 @@ jobs:
 
           for path in Path('.').rglob('*'):
               if '.git' in path.parts or '.github' in path.parts or 'node_modules' in path.parts:
+                  continue
+              if path.name == '.env.example':
                   continue
               if path.suffix.lower() not in suffixes:
                   continue

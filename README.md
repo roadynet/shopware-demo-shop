@@ -88,6 +88,22 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 - HTML / CSS
 - Git / GitHub
 
+## Configuration And Secrets
+
+The public repository contains only placeholder configuration in [.env.example](.env.example).
+
+Real Shopware Admin API credentials are never committed. In production, these values are configured on the server or as CI secrets:
+
+```env
+SHOPWARE_ADMIN_BASE_URL=
+SHOPWARE_ADMIN_USERNAME=
+SHOPWARE_ADMIN_PASSWORD=
+SHOPWARE_SYNC_CATEGORY_NAME=SkillBuilder Kurse
+SHOPWARE_SYNC_PRODUCT_PREFIX=SB-COURSE-
+```
+
+The storefront JavaScript does not contain Admin API credentials. The real import runs server-side in the connected Symfony/SkillBuilder backend.
+
 ## API-basierte Produktsynchronisation
 
 In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. Dieser Button stoesst den Import in Shopware an:
