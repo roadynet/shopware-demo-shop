@@ -111,6 +111,8 @@ Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
 - [Recruiter project summary](docs/project-summary-for-recruiters.md)
 - [Interview Q&A](docs/interview-qa.md)
 - [Portfolio audit report](docs/audit-report-2026-05-23.md)
+- [Demo script](docs/demo-script.md)
+- [Changelog](CHANGELOG.md)
 
 Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
@@ -118,7 +120,7 @@ Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
 
 Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
 
-- Kursinhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
+- Lerninhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
 - Nur freigegebene Inhalte erscheinen automatisch im Shop.
 - Der Shop wird zur sichtbaren Commerce-Oberflaeche fuer SkillBuilder-Inhalte.
 - Admins koennen Shopware-Produkte per Button synchronisieren.
