@@ -2,46 +2,78 @@
 
 [![Portfolio Audit](https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml/badge.svg)](https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml)
 
-**Live Demo (Portfolio): [https://sw.mcmonaco.de](https://sw.mcmonaco.de)**
+Live demo: [https://sw.mcmonaco.de](https://sw.mcmonaco.de)
 
-Connected SkillBuilder portfolio repository: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
+Connected SkillBuilder showcase: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
-**Recruiter summary:** real Shopware Admin API integration for SkillBuilder. Published SkillBuilder lessons are synchronized as Shopware products through an admin button in the Symfony application. The storefront shows the result as a demo shop with orders, payment, registration, and contact forms disabled.
+## Auf einen Blick
 
-## What I Built
+- **Was ist es?** Eine öffentliche Shopware-Storefront-Demo für veröffentlichte SkillBuilder-Lessons.
+- **Tech-Stack:** Shopware 6, Shopware Admin API, Symfony-Importservice im SkillBuilder-Backend, HTML/CSS/JavaScript.
+- **Warum interessant?** Das Projekt zeigt einen echten E-Commerce-Integrationspfad: Lernplattform-Inhalte werden serverseitig als Shopware-Produkte synchronisiert.
+- **Demo-Schutz:** keine echten Bestellungen, keine Zahlung, keine Registrierung, kein Kontaktformular, keine Kundendaten.
 
-- Admin-triggered product synchronization from SkillBuilder into Shopware
-- Shopware Admin API import workflow for published SkillBuilder lessons
-- stable product numbers with update instead of duplicate creation
-- activation/deactivation based on SkillBuilder publication status
-- storefront demo aligned visually with the SkillBuilder dashboard
-- no-sale demo protection: no checkout, no payment, no registration, no contact form
+## Senior-Level Review-Pfad
 
-## Quick Facts
-
-| Bereich | Inhalt |
+| Frage | Einstieg |
 | --- | --- |
-| Projekt | Funktionsfaehige Shopware-Integration fuer SkillBuilder |
-| Live-Demo | [https://sw.mcmonaco.de](https://sw.mcmonaco.de) |
-| Echt umgesetzt | SkillBuilder Admin-Button synchronisiert veroeffentlichte Lessons ueber die Shopware Admin API als Produkte |
-| Mapping | Lessons werden Produkte. Kapitel werden nicht als Kategorien synchronisiert. |
-| Sichtbarkeit | Nur `published` Lessons erscheinen im Shop; nicht mehr veroeffentlichte Produkte werden deaktiviert |
-| Mein Anteil | Shopware Admin API Integration, Symfony Import-Service, Statuslogik, Storefront-Demo, Demo-Schutz |
-| Demo-Schutz | Keine echten Bestellungen, keine Zahlung, keine Registrierung, kein Kontaktformular, keine personenbezogenen Daten |
+| Was wird demonstriert? | serverseitige Shopware Admin API Produktsynchronisation |
+| Was macht die Demo sicher? | Storefront ohne Checkout, Zahlung, Registrierung und Kontaktformular |
+| Was ist die wichtigste Integrationsentscheidung? | Lessons werden stabile Produkte, Updates ersetzen Duplikate |
+| Was ist bewusst außerhalb des Scopes? | echte Bestellungen, Payment Capture, Kundenkonten, produktive Secrets |
 
-**Kurz gesagt:** SkillBuilder pflegt veroeffentlichte Lessons per Admin-Button direkt als Produkte in einen echten Shopware-Shop ein. Die Storefront zeigt das Ergebnis, ohne Kundendaten oder Bestellungen zu verarbeiten.
+Senior-Signale:
 
-**Positioning:** PHP/Symfony backend integration, Shopware 6 concepts, Admin API automation, product synchronization, and demo storefront operation.
+- Admin API Credentials liegen nicht im Frontend.
+- Produktnummern sind stabil, damit Syncs idempotent bleiben.
+- Veröffentlichungsstatus in SkillBuilder steuert Sichtbarkeit in Shopware.
+- Die Storefront ist ein Portfolio-Demo-Shop, kein Verkaufssystem.
 
-## Architecture
+## Kleine Codebeispiele
+
+Synchronisationspfad:
+
+```text
+SkillBuilder Admin -> Import Service -> Shopware Admin API -> Product Upsert -> Storefront
+```
+
+Statuslogik:
+
+```text
+published -> product active
+draft     -> product hidden
+archived  -> product deactivated
+```
+
+Mapping:
+
+```text
+Lesson title       -> product name
+Lesson summary     -> product description
+Stable lesson id   -> product number SB-COURSE-{id}
+```
+
+## Was gebaut wurde
+
+- Admin-ausgelöster Produkt-Sync aus SkillBuilder
+- Shopware Admin API Import für veröffentlichte Lessons
+- stabile Produktnummern mit Update statt Duplikaten
+- Aktivierung/Deaktivierung anhand des SkillBuilder-Status
+- visuell an SkillBuilder angelehnte Storefront
+- Demo-Warenkorb ohne Verkauf
+- deaktivierte Registrierung, Login-Formulare und Kontaktformulare
+
+## Architektur
 
 ![SkillBuilder to Shopware architecture](docs/architecture-flow.svg)
 
-The important path is:
+Der relevante Weg:
 
-`SkillBuilder Admin -> Symfony Import Service -> Shopware Admin API -> Shopware Products -> Storefront`
+```text
+SkillBuilder Admin -> Symfony Import Service -> Shopware Admin API -> Shopware Products -> Storefront
+```
 
-Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Kategorien synchronisiert. Die Produkte werden gesammelt der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
+Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Shopware-Kategorien synchronisiert. Die Produkte werden gesammelt der Kategorie `SkillBuilder Kurse` zugeordnet.
 
 ## Screenshots
 
@@ -61,110 +93,28 @@ Wichtig: Lessons werden Produkte. Kapitel werden in dieser Demo nicht als Katego
 
 ![Demo-Warenkorb ohne Verkauf](docs/screenshots/demo-cart.png)
 
-## Features
+## Sicherheit und Betrieb
 
-- reale Shopware Admin API Synchronisation
-- SkillBuilder-Import: veroeffentlichte Lessons werden als Shopware-Produkte erzeugt
-- Statussteuerung ueber `published`
-- automatische Aktivierung und Deaktivierung von Produkten
-- veraltete Unterkategorien aus frueheren Demo-Importen werden ausgeblendet
-- Kapitel werden nicht als Kategorien angelegt oder synchronisiert
-- Admin-Workflow per Button
-- Environment-basierte API-Konfiguration
-- Produktkatalog
-- Suche und Filter
-- Warenkorb-Ansicht
-- Checkout-nahe Demo ohne echte Zahlung
-- sichtbarer Demo-Hinweis: keine Bestellung, keine Zahlung, kein Verkauf
-- deaktivierte Registrierung, Login-Formulare und Kontaktformulare fuer eine DSGVO-sichere Portfolio-Demo
+- `.env.example` enthält nur Platzhalter.
+- echte Shopware Admin API Zugangsdaten werden nicht committet.
+- die eigentliche Admin API Integration läuft serverseitig im SkillBuilder-Backend.
+- Storefront-JavaScript enthält keine Admin API Credentials.
+- der öffentliche Shop ist sichtbar als Demo markiert und verarbeitet keine echten Bestellungen.
 
-## Tech Stack
-
-- PHP / Symfony im SkillBuilder Backend
-- Shopware 6
-- Shopware Admin API
-- API-basierter Produktimport
-- JavaScript
-- HTML / CSS
-- Git / GitHub
-
-## Configuration And Secrets
-
-The public repository contains only placeholder configuration in [.env.example](.env.example).
-
-Real Shopware Admin API credentials are never committed. In production, these values are configured on the server, as CI secrets, or in a private config file outside both application directories:
-
-```text
-/www/htdocs/example/
-├── projects/
-│   ├── sb/
-│   └── shopware/
-└── private-config/
-    └── skillbuilder-shopware.env
-```
-
-SkillBuilder can point to the external file with:
-
-```env
-SKILLBUILDER_SECRETS_FILE=/www/htdocs/example/private-config/skillbuilder-shopware.env
-```
-
-The external file contains values such as:
+Kleine Config-Form:
 
 ```env
 SHOPWARE_ADMIN_BASE_URL=
-SHOPWARE_ADMIN_USERNAME=
-SHOPWARE_ADMIN_PASSWORD=
 SHOPWARE_SYNC_CATEGORY_NAME=SkillBuilder Kurse
 SHOPWARE_SYNC_PRODUCT_PREFIX=SB-COURSE-
 ```
 
-The storefront JavaScript does not contain Admin API credentials. The real import runs server-side in the connected Symfony/SkillBuilder backend.
-
-## API-basierte Produktsynchronisation
-
-In SkillBuilder gibt es im Admin-Bereich den Button **Shopware Demo-Produkte**. Dieser Button stoesst den Import in Shopware an:
-
-1. SkillBuilder liest alle Lessons mit Status `published`.
-2. Fuer jede veroeffentlichte Lesson wird ein Shopware-Produkt mit der Produktnummer `SB-COURSE-{id}` erzeugt oder aktualisiert.
-3. Die Produkte werden der Shop-Kategorie `SkillBuilder Kurse` zugeordnet.
-4. Produkte, die nicht mehr zu veroeffentlichten Lessons gehoeren, werden in Shopware deaktiviert.
-5. Alte Demo-Unterkategorien werden ausgeblendet, damit keine frueheren Importversuche in der Navigation sichtbar bleiben.
-
-Die Zugangsdaten zur Shopware Admin API liegen nicht in diesem Repository. Sie werden in der produktiven Umgebung ueber Environment-Variablen gesetzt.
-
-Diese Integration laeuft gegen eine echte Shopware-Installation. Der oeffentliche Code-Auszug ist bereinigt, damit keine produktiven Zugangsdaten oder Serverdetails veroeffentlicht werden.
-
-### Code-Auszug
-
-Der relevante Import-Code ist als bereinigtes Beispiel im Repository enthalten:
-
-- [Symfony Admin Controller](examples/skillbuilder-shopware-import/AdminShopwareDemoProductController.php)
-- [Shopware Admin API Import Service](examples/skillbuilder-shopware-import/ShopwareDemoProductImporter.php)
-- [Recruiter project summary](docs/project-summary-for-recruiters.md)
-- [Interview Q&A](docs/interview-qa.md)
-- [Portfolio audit report](docs/audit-report-2026-05-23.md)
-- [Demo script](docs/demo-script.md)
-- [Changelog](CHANGELOG.md)
-
-Das Beispiel zeigt die eigentliche Bridge-Logik ohne produktive Zugangsdaten.
-
 ## Business-Nutzen
 
-Dieses Projekt zeigt einen realen Workflow fuer Anbieter digitaler Inhalte:
-
-- Lerninhalte muessen nicht doppelt in Lernplattform und Shop gepflegt werden.
+- Lerninhalte müssen nicht doppelt in Lernplattform und Shop gepflegt werden.
 - Nur freigegebene Inhalte erscheinen automatisch im Shop.
-- Der Shop wird zur sichtbaren Commerce-Oberflaeche fuer SkillBuilder-Inhalte.
-- Admins koennen Shopware-Produkte per Button synchronisieren.
-- Die Integration verbindet Lernplattform, E-Commerce und Content-Automation.
+- Der Shop wird zur sichtbaren Commerce-Oberfläche für SkillBuilder-Inhalte.
 - Produktpflege wird von manueller Shop-Administration zu einem wiederholbaren Datenprozess.
-
-## Warum dieses Projekt existiert
-
-Das Projekt erweitert SkillBuilder um eine praxisorientierte E-Commerce-Integration. Es zeigt nicht nur ein Frontend, sondern eine konkrete Verbindung zwischen Lernplattform, Shopware Admin API und Storefront.
-
-Der Shop ist bewusst als Demo markiert. Es werden keine echten Kundendaten, Zahlungen oder produktiven Zugangsdaten verarbeitet.
 
 ## Lokal starten
 
@@ -172,13 +122,8 @@ Der Shop ist bewusst als Demo markiert. Es werden keine echten Kundendaten, Zahl
 npm run dev
 ```
 
-Danach ist die lokale Demo standardmaessig unter `http://127.0.0.1:5173` erreichbar.
+Danach ist die lokale Demo standardmäßig unter `http://127.0.0.1:5173` erreichbar.
 
-Alternativ kann `index.html` direkt im Browser geoeffnet werden.
+## Grenzen
 
-## Naechste Schritte
-
-- Sync-Log um eine Detailansicht pro Produkt erweitern
-- Produktbilder und Preise aus SkillBuilder-Metadaten ableiten
-- Shopware-Produktdetailseite weiter an SkillBuilder-Metadaten anreichern
-- weitere Screenshots oder kurzes Demo-Video ergaenzen
+Dieses Projekt ist eine Integrations- und Storefront-Demo. Es ersetzt keine produktive Shopware-Installation mit Checkout, Payment, Kundendaten oder Bestellabwicklung.
