@@ -18,6 +18,7 @@ Connected SkillBuilder showcase: [roadynet/skillbuilder-showcase](https://github
 | Frage | Einstieg |
 | --- | --- |
 | Was wird demonstriert? | serverseitige Shopware Admin API Produktsynchronisation |
+| Welche Praxis ist belegbar? | [Production Evidence](docs/production-evidence.md) |
 | Was macht die Demo sicher? | Storefront ohne Checkout, Zahlung, Registrierung und Kontaktformular |
 | Was ist die wichtigste Integrationsentscheidung? | Lessons werden stabile Produkte, Updates ersetzen Duplikate |
 | Was ist bewusst außerhalb des Scopes? | echte Bestellungen, Payment Capture, Kundenkonten, produktive Secrets |
@@ -127,3 +128,5 @@ Danach ist die lokale Demo standardmäßig unter `http://127.0.0.1:5173` erreich
 ## Grenzen
 
 Dieses Projekt ist eine Integrations- und Storefront-Demo. Es ersetzt keine produktive Shopware-Installation mit Checkout, Payment, Kundendaten oder Bestellabwicklung.
+
+Weitere Praxis-Evidence: [Production Evidence](docs/production-evidence.md)
