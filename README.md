@@ -6,6 +6,20 @@ Live demo: [https://sw.mcmonaco.de](https://sw.mcmonaco.de)
 
 Connected SkillBuilder showcase: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
+## Best place to start
+
+1. **Live-Demo:** [sw.mcmonaco.de](https://sw.mcmonaco.de)
+2. **Produktbild:** SkillBuilder-Lessons werden als Shopware-Produkte sichtbar, ohne echten Verkauf.
+3. **Architektur:** [docs/architecture-flow.svg](docs/architecture-flow.svg)
+4. **Bester Codepfad:** Storefront-Schutz, Demo-Guardrails und Shopware-Sync-Evidence.
+5. **Qualitaet:** [Quality Report](docs/quality-report.md) und gruene Portfolio-Audit-CI
+
+Portfolio-Kontext: [Roadynet PHP/Symfony Portfolio](https://github.com/roadynet/skillbuilder-showcase/blob/main/PORTFOLIO.md)
+
+## Produktpositionierung
+
+Dieses Repository ist der sichtbare Commerce-Beweis fuer SkillBuilder: keine generische Shop-Demo, sondern eine Shopware-Oberflaeche fuer synchronisierte Lerninhalte. Der Fokus liegt auf Admin-API-Integration, stabilen Produktnummern, Demo-Schutz und der klaren Grenze zwischen oeffentlicher Storefront und privaten Backend-Credentials.
+
 ## Audit & Evidence
 
 - [Audit Report](docs/audit-report-2026-07-01.md)
