@@ -6,6 +6,14 @@ Live demo: [https://sw.mcmonaco.de](https://sw.mcmonaco.de)
 
 Connected SkillBuilder showcase: [roadynet/skillbuilder-showcase](https://github.com/roadynet/skillbuilder-showcase)
 
+## Audit & Evidence
+
+- [Audit Report](docs/audit-report-2026-07-01.md)
+- [Quality Report](docs/quality-report.md)
+- [Evidence Index](docs/evidence/README.md)
+- [Production Evidence](docs/production-evidence.md)
+- [Operations Runbook](OPERATIONS.md)
+
 ## Auf einen Blick
 
 - **Was ist es?** Eine öffentliche Shopware-Storefront-Demo für veröffentlichte SkillBuilder-Lessons.
