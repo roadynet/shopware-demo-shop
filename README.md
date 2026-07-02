@@ -14,6 +14,15 @@ Connected SkillBuilder showcase: [roadynet/skillbuilder-showcase](https://github
 - [Production Evidence](docs/production-evidence.md)
 - [Operations Runbook](OPERATIONS.md)
 
+## Tests & Quality Gates
+
+[![Demo Tests + Quality Gates](https://img.shields.io/github/actions/workflow/status/roadynet/shopware-demo-shop/portfolio-audit.yml?branch=main&label=Demo%20Tests%20%2B%20Quality%20Gates)](https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml)
+
+- **Demo-Tests:** Node-Test prüft No-Sale-Guardrails und Demo-Shop-Schutztexte.
+- **Syntax-Gates:** PHP-Beispiele und Storefront-JavaScript werden in CI geprüft.
+- **Portfolio-Schutz:** Markdown-Linkcheck, Wording-Check, Env-Policy und Secret-Pattern-Scan laufen bei jedem Push.
+- **PHPStan:** bewusst nicht als Public-Gate behauptet, weil dieses Repo die Storefront-/Demo-Evidence und nicht den kompletten Backend-Code enthält.
+
 ## Auf einen Blick
 
 - **Was ist es?** Eine öffentliche Shopware-Storefront-Demo für veröffentlichte SkillBuilder-Lessons.

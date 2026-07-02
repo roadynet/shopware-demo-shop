@@ -29,8 +29,22 @@ SkillBuilder-to-Shopware bridge. CI runs PHP syntax validation on these examples
 The Storefront demo JavaScript is checked with:
 
 ```text
-node --check src/main.js
+npm run check
 ```
+
+### Demo Guardrail Tests
+
+The Storefront demo has Node tests for its public safety promises:
+
+```text
+npm test
+```
+
+Covered behavior:
+
+- no-sale messaging remains visible
+- payment/order deactivation wording remains visible
+- account, registration and alert-style flows are not introduced
 
 ### Markdown Links
 
@@ -56,6 +70,7 @@ Performed checks:
 
 - live demo HTTP check
 - GitHub Actions status check
+- Node demo guardrail tests
 - PHP example syntax
 - JavaScript syntax
 - local Markdown link check

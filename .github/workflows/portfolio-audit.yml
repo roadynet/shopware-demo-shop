@@ -9,7 +9,7 @@ on:
 
 jobs:
   audit:
-    name: Documentation and demo checks
+    name: Demo tests and quality gates
     runs-on: ubuntu-latest
 
     steps:
@@ -36,7 +36,10 @@ jobs:
           done < <(find examples -name '*.php' -type f | sort)
 
       - name: Check JavaScript syntax
-        run: node --check src/main.js
+        run: npm run check
+
+      - name: Run demo guardrail tests
+        run: npm test
 
       - name: Check local Markdown links
         shell: python
