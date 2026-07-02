@@ -14,7 +14,7 @@ Live demo: HTTP 200
 Workflow evidence:
 
 ```text
-https://github.com/roadynet/shopware-demo-shop/actions/runs/28525154655
+https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml
 ```
 
 ## Check Coverage Areas

@@ -5,7 +5,7 @@ This directory collects safe public evidence for the Shopware demo storefront.
 ## Current Evidence
 
 - GitHub Actions `Portfolio Audit`:
-  `https://github.com/roadynet/shopware-demo-shop/actions/runs/28525154655`
+  `https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml`
 - Live demo:
   `https://sw.mcmonaco.de`
 - [CI verification notes](ci-verification-2026-07-01.md)

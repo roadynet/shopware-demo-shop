@@ -11,7 +11,7 @@ Recorded status:
 ```text
 Workflow: Portfolio Audit
 Status: success
-URL: https://github.com/roadynet/shopware-demo-shop/actions/runs/28525154655
+Workflow URL: https://github.com/roadynet/shopware-demo-shop/actions/workflows/portfolio-audit.yml
 ```
 
 ## Live Check
